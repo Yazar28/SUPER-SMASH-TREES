@@ -18,13 +18,17 @@ public partial class Player : CharacterBody2D
             velocity.Y += _gravity * (float)delta;
 
         // Movimiento
+
         Vector2 inputDir = Input.GetVector(
             $"p{PlayerNumber}_move_left",
             $"p{PlayerNumber}_move_right",
             "",
             "");
 
+
         velocity.X = inputDir.X * Speed;
+        
+
 
         // Salto
         if (Input.IsActionJustPressed($"p{PlayerNumber}_jump") && IsOnFloor())
