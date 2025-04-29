@@ -6,6 +6,8 @@
 size = Vector2(18, 17)
 
 [node name="Platforms" type="Node2D"]
+position = Vector2(34, 26)
+metadata/_edit_group_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

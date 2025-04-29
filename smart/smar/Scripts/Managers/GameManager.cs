@@ -1,5 +1,7 @@
 using Godot;
 using System.Collections.Generic;
+using BinaryTree;
+using System;
 
 public partial class GameManager : Node
 {
@@ -9,7 +11,7 @@ public partial class GameManager : Node
     [Export] public float TokenSpawnInterval = 2.0f;
 
     private Timer _tokenTimer;
-    private Dictionary<Player, Tree> _playerTrees = new Dictionary<Player, Tree>();
+    private Dictionary<Player, BST> _playerTrees = new Dictionary<Player, BST>();
 
     public override void _Ready()
     {
@@ -22,7 +24,9 @@ public partial class GameManager : Node
     {
         foreach (Player player in GetTree().GetNodesInGroup("Players"))
         {
-            _playerTrees.Add(player, new BST());
+            _playerTrees.Add(
+                player,
+                new BST());
         }
     }
 
@@ -49,5 +53,10 @@ public partial class GameManager : Node
     {
         _playerTrees[player].Insert(value);
         CheckChallenge(player);
+    }
+
+    private void CheckChallenge(Player player)
+    {
+        throw new NotImplementedException();
     }
 }
