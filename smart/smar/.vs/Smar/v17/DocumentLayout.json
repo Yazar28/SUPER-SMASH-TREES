@@ -1,32 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|d:\\juego2\\super-smash-trees\\smart\\smar\\scripts\\players\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|solutionrelative:scripts\\players\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|d:\\juego2\\super-smash-trees\\smart\\smar\\scripts\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|solutionrelative:scripts\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|d:\\juego2\\super-smash-trees\\smart\\smar\\scripts\\ui\\bts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|solutionrelative:scripts\\ui\\bts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|d:\\juego2\\super-smash-trees\\smart\\smar\\scripts\\managers\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|solutionrelative:scripts\\managers\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|d:\\juego2\\super-smash-trees\\smart\\smar\\scripts\\ui\\treeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|solutionrelative:scripts\\ui\\treeui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|d:\\juego2\\super-smash-trees\\smart\\smar\\scripts\\managers\\platformgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{47787621-5E07-490B-9D90-A58CE52DDA4F}|Smar.csproj|solutionrelative:scripts\\managers\\platformgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\OneDrive\\Desktop\\Programaci\u00F3n\\Algoritmo y Estructuras de Datos\\SUPER-SMASH-TREES\\smart\\smar\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -34,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,80 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BTS.cs",
-              "DocumentMoniker": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\UI\\BTS.cs",
-              "RelativeDocumentMoniker": "Scripts\\UI\\BTS.cs",
-              "ToolTip": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\UI\\BTS.cs",
-              "RelativeToolTip": "Scripts\\UI\\BTS.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T08:03:20.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TreeUI.cs",
-              "DocumentMoniker": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\UI\\TreeUI.cs",
-              "RelativeDocumentMoniker": "Scripts\\UI\\TreeUI.cs",
-              "ToolTip": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\UI\\TreeUI.cs",
-              "RelativeToolTip": "Scripts\\UI\\TreeUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T07:59:04.049Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\Managers\\GameManager.cs",
-              "RelativeDocumentMoniker": "Scripts\\Managers\\GameManager.cs",
-              "ToolTip": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\Managers\\GameManager.cs",
-              "RelativeToolTip": "Scripts\\Managers\\GameManager.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAA7wD0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T07:56:49.788Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Token.cs",
-              "DocumentMoniker": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\Managers\\Token.cs",
-              "RelativeDocumentMoniker": "Scripts\\Managers\\Token.cs",
-              "ToolTip": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\Managers\\Token.cs",
-              "RelativeToolTip": "Scripts\\Managers\\Token.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T07:56:07.905Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PlatformGenerator.cs",
-              "DocumentMoniker": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\Managers\\PlatformGenerator.cs",
-              "RelativeDocumentMoniker": "Scripts\\Managers\\PlatformGenerator.cs",
-              "ToolTip": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\Managers\\PlatformGenerator.cs",
-              "RelativeToolTip": "Scripts\\Managers\\PlatformGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T07:52:26.499Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Player.cs",
-              "DocumentMoniker": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\Players\\Player.cs",
-              "RelativeDocumentMoniker": "Scripts\\Players\\Player.cs",
-              "ToolTip": "D:\\Juego2\\SUPER-SMASH-TREES\\smart\\smar\\Scripts\\Players\\Player.cs",
-              "RelativeToolTip": "Scripts\\Players\\Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T07:44:06.85Z",
-              "EditorCaption": ""
             }
           ]
         }
