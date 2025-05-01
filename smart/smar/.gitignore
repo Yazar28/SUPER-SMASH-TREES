@@ -44,3 +44,17 @@ obj/
 
 # Optional: ignore your own test export builds
 /build/
+
+# Archivos generados por Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.v11.suo
+*.v12.suo
+*.v15.suo
+*.pidb
+*.csproj.user
+*.dbmdl
+*.log
