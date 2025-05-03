@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu4j7i27b1f4l"]
+
+[ext_resource type="PackedScene" uid="uid://b3t2jcc80pwma" path="res://Scenes/Players/Player2.tscn" id="1_wthg4"]
+[ext_resource type="Script" uid="uid://bqe7xwrd85tbc" path="res://Scripts/Managers/PlatformGenerator.cs" id="2_vhsgr"]
+
+[node name="PlataformaTest" type="Node2D"]
+position = Vector2(18, 0)
+
+[node name="PlatformGenerator" type="Node2D" parent="."]
+script = ExtResource("2_vhsgr")
+
+[node name="Player" parent="." instance=ExtResource("1_wthg4")]
+position = Vector2(624, 49)
+JumpVelocity = -500.0

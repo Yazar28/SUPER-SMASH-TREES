@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdthcmuvd228g"]
+
+[ext_resource type="Texture2D" uid="uid://dwli2ilqfeo7l" path="res://Assets/Platform/Plataforma_Pequeña.tres" id="1_hg32r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg32r"]
+size = Vector2(194.264, 21.7115)
+
+[node name="Platform" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-06, -20)
+scale = Vector2(0.700079, 0.552703)
+shape = SubResource("RectangleShape2D_hg32r")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.700079, 0.552703)
+texture = ExtResource("1_hg32r")

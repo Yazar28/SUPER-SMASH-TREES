@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhb7rbu5g4ns0"]
+
+[ext_resource type="Texture2D" uid="uid://bb3qfjtrj03wv" path="res://Assets/Platform/Plataforma_Mediana.tres" id="1_1h3ei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h3ei"]
+size = Vector2(319.964, 22.8546)
+
+[node name="Platform" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -27.9999)
+scale = Vector2(0.700079, 0.552703)
+shape = SubResource("RectangleShape2D_1h3ei")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.700079, 0.552703)
+texture = ExtResource("1_1h3ei")

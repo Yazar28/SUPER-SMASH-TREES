@@ -1,0 +1,60 @@
+# Godot-specific
+.import/
+.export/
+godot.env
+.godot/
+*.translation
+*.import
+
+# Exported binaries
+*.exe
+*.pck
+*.zip
+
+# Mono (C#) specific
+.mono/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.dll
+*.mdb
+*.exe
+*.ncrunch*
+*.vs/
+.vscode/
+.idea/
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# OS-specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Build directories (optional, if you use a build system)
+bin/
+obj/
+
+# Optional: ignore your own test export builds
+/build/
+
+# Archivos generados por Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.v11.suo
+*.v12.suo
+*.v15.suo
+*.pidb
+*.csproj.user
+*.dbmdl
+*.log

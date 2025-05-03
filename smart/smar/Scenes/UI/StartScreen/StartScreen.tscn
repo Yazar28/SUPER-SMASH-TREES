@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpiwf1d5l6v0x"]
+
+[ext_resource type="Script" uid="uid://3xewywlawveu" path="res://Scripts/UI/StartScreen.cs" id="1_w41nv"]
+[ext_resource type="Texture2D" uid="uid://cpjaw2heqop7j" path="res://Assets/Backgrounds/Fondo_Inicio.png" id="2_uecrp"]
+[ext_resource type="Texture2D" uid="uid://bimkoggo7kgyp" path="res://Assets/Logo/Logo.png" id="3_bp0p7"]
+[ext_resource type="Texture2D" uid="uid://fl5au21cl1r3" path="res://Assets/Buttons/Normal_Jugar.tres" id="4_o05vr"]
+[ext_resource type="Texture2D" uid="uid://v47k1xad54p5" path="res://Assets/Buttons/Pressed_Jugar.tres" id="5_ud21y"]
+[ext_resource type="Texture2D" uid="uid://4b852aexcyh8" path="res://Assets/Buttons/Hover_Jugar.tres" id="6_3wmgp"]
+[ext_resource type="Texture2D" uid="uid://lohb4cjyl6pv" path="res://Assets/Buttons/Normal_Salir.tres" id="7_4y26h"]
+[ext_resource type="Texture2D" uid="uid://bf7yg4v4hxr2l" path="res://Assets/Buttons/Pressed_Salir.tres" id="8_w6x0k"]
+[ext_resource type="Texture2D" uid="uid://bun5kmahl6c58" path="res://Assets/Buttons/Hover_Salir.tres" id="9_ygb87"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -19.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_w41nv")
+
+[node name="Fondo" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -340.5
+offset_right = 640.0
+offset_bottom = 339.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uecrp")
+expand_mode = 1
+
+[node name="Menu" type="VBoxContainer" parent="Fondo"]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -346.0
+offset_right = 250.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TittleLabel" type="TextureRect" parent="Fondo/Menu"]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_bp0p7")
+expand_mode = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Fondo/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="PlayButton" type="TextureButton" parent="Fondo/Menu/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_o05vr")
+texture_pressed = ExtResource("5_ud21y")
+texture_hover = ExtResource("6_3wmgp")
+
+[node name="ExitButton" type="TextureButton" parent="Fondo/Menu/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_4y26h")
+texture_pressed = ExtResource("8_w6x0k")
+texture_hover = ExtResource("9_ygb87")

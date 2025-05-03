@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfxe88a8h5l2n"]
+
+[ext_resource type="Texture2D" uid="uid://cj8rwx8w18amw" path="res://Assets/Platform/Plataforma_Enorme.tres" id="1_edhc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ta32w"]
+size = Vector2(877.352, 40.5441)
+
+[node name="Platform" type="StaticBody2D"]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(221, 22.1927)
+scale = Vector2(0.490111, 0.305481)
+shape = SubResource("RectangleShape2D_ta32w")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.700079, 0.552703)
+texture = ExtResource("1_edhc6")
+centered = false

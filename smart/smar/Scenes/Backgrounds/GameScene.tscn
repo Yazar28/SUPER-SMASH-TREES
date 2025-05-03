@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://oavxp1fmc2x4"]
+
+[ext_resource type="Script" uid="uid://bgu0v7gx6g1va" path="res://Scripts/Backgrounds/BackgroundManager.cs" id="1_gqopc"]
+
+[node name="GameScene" type="Node2D"]
+
+[node name="BackgroundsSprite" type="Sprite2D" parent="."]
+position = Vector2(640, 340)
+
+[node name="BackgroundManager" type="Node" parent="." node_paths=PackedStringArray("BackgroundSprite")]
+script = ExtResource("1_gqopc")
+BackgroundSprite = NodePath("../BackgroundsSprite")
