@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Smar"
-run/main_scene="uid://fcsrnx0w6buw"
+run/main_scene="uid://dgixl2oy0wghr"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
