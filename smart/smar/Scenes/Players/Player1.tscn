@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://ns1qyl3sc7kk"]
 
 [ext_resource type="Script" uid="uid://c0dy8rik2l3vi" path="res://Scripts/Players/Player.cs" id="1_dli2r"]
-[ext_resource type="Texture2D" uid="uid://c82w26das3aqr" path="res://Assets/Sprites/Personaje1/character_maleAdventurer_sheetHD.png" id="2_uojif"]
+[ext_resource type="Texture2D" uid="uid://bjpy3u3oe1aka" path="res://Assets/Sprites/Personaje1/character_maleAdventurer_sheetHD.png" id="2_uojif"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uojif"]
 atlas = ExtResource("2_uojif")
@@ -63,7 +63,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_31pcq")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -71,7 +71,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x1kdy")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack2",
 "speed": 5.0
 }, {
@@ -124,15 +124,12 @@ radius = 18.0278
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(217, 168)
-collision_mask = 5
 script = ExtResource("1_dli2r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.421875, 0.386719)
 sprite_frames = SubResource("SpriteFrames_uojif")
-animation = &"Attack"
-frame = 1
-frame_progress = 0.607031
+animation = &"Attack2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -140,18 +137,17 @@ position = Vector2(1, 16)
 shape = SubResource("CapsuleShape2D_uojif")
 
 [node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(23, 17)
 collision_layer = 2
-collision_mask = 6
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(22, 17)
 shape = SubResource("CircleShape2D_uojif")
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.05
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="OnAttackHit"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="timeout" from="CooldownTimer" to="." method="OnCooldownTimerTimeout"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dcrvmsp2t63dy"]
 
 [ext_resource type="Script" uid="uid://c0dy8rik2l3vi" path="res://Scripts/Players/Player.cs" id="1_tss2m"]
-[ext_resource type="Texture2D" uid="uid://v55w7axjfcu6" path="res://Assets/Sprites/Personaje4/character_femaleAdventurer_sheetHD.png" id="2_tss2m"]
+[ext_resource type="Texture2D" uid="uid://dv0t58ufbewhg" path="res://Assets/Sprites/Personaje4/character_femaleAdventurer_sheetHD.png" id="2_tss2m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v1awp"]
 atlas = ExtResource("2_tss2m")
@@ -67,7 +67,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eid40")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -75,7 +75,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_plfrt")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack2",
 "speed": 5.0
 }, {
@@ -131,15 +131,13 @@ radius = 18.0278
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(217, 168)
-collision_mask = 5
 script = ExtResource("1_tss2m")
 PlayerNumber = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.421875, 0.386719)
 sprite_frames = SubResource("SpriteFrames_uojif")
-animation = &"Salto"
-frame_progress = 0.537418
+animation = &"Attack2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -147,15 +145,15 @@ position = Vector2(1, 16)
 shape = SubResource("CapsuleShape2D_uojif")
 
 [node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(23, 17)
 collision_layer = 2
-collision_mask = 6
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(22, 17)
 shape = SubResource("CircleShape2D_uojif")
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.05
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
