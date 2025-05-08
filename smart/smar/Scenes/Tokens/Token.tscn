@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqqnenoytc3r1"]
+
+[ext_resource type="Script" uid="uid://c0n4exmqqp3q4" path="res://Scripts/Managers/Token.cs" id="1_3w2o5"]
+[ext_resource type="Texture2D" uid="uid://dkc67f2n536df" path="res://Assets/Tokens/Moneda.png" id="2_bnmkf"]
+[ext_resource type="FontFile" uid="uid://bxmbva5xwh2sg" path="res://Assets/Fonts/Pixel Emulator.otf" id="3_53clb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrb4t"]
+radius = 26.0
+
+[node name="Token" type="Area2D"]
+script = ExtResource("1_3w2o5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_bnmkf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_yrb4t")
+
+[node name="ValueLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.5
+offset_top = -11.5
+offset_right = 13.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.588136, 0.302819, 0.0138369, 1)
+theme_override_fonts/font = ExtResource("3_53clb")
+horizontal_alignment = 1
+vertical_alignment = 1

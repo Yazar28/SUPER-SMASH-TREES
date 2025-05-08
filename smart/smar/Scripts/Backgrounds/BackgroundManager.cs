@@ -11,7 +11,7 @@ public partial class BackgroundManager : Node
         "res://Assets/Backgrounds/Level1.png",
         "res://Assets/Backgrounds/Level2.png",
         "res://Assets/Backgrounds/Level3.png",
-        "res://Assets/Backgrounds/Level4.png",
+        "res://Assets/Backgrounds/Level4.png"
     };
 
     public override void _Ready()

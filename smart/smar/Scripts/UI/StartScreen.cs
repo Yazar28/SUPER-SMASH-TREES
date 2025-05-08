@@ -14,7 +14,7 @@ public partial class StartScreen : Control
 
     private void OnPlayPressed()
     {
-        GetTree().ChangeSceneToFile("res://Scenes/Main/Level1.tscn");
+        GetTree().ChangeSceneToFile("res://Scenes/Main/TestLevel.tscn");
     }
 
     private void OnExitPressed()

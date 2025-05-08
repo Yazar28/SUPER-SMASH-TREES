@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://duuh87cgyvayy"]
+
+[ext_resource type="Script" uid="uid://ejwqwx1qbrpv" path="res://Scripts/Managers/GameManager.cs" id="1_57p6d"]
+[ext_resource type="PackedScene" uid="uid://oavxp1fmc2x4" path="res://Scenes/Backgrounds/GameScene.tscn" id="1_hoc1l"]
+[ext_resource type="PackedScene" uid="uid://bqqnenoytc3r1" path="res://Scenes/Tokens/Token.tscn" id="2_57p6d"]
+[ext_resource type="PackedScene" uid="uid://cl88nnx3qw8we" path="res://Scenes/Platform/Plataformas.tscn" id="2_o6ggv"]
+[ext_resource type="PackedScene" uid="uid://b3t2jcc80pwma" path="res://Scenes/Players/Player2.tscn" id="3_u4oc6"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_57p6d")
+TokenScene = ExtResource("2_57p6d")
+TokenSpawnInterval = 3.0
+
+[node name="Backgrounds" parent="." instance=ExtResource("1_hoc1l")]
+
+[node name="Platforms" parent="." instance=ExtResource("2_o6ggv")]
+
+[node name="Tokens" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_u4oc6")]
