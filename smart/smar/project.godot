@@ -11,18 +11,22 @@ config_version=5
 [application]
 
 config/name="Smar"
-run/main_scene="uid://fcsrnx0w6buw"
+run/main_scene="uid://bpiwf1d5l6v0x"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalData="*res://Scripts/Globals/GlobalData.cs"
+
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=680
-window/size/window_width_override=1280
-window/size/window_height_override=680
-window/stretch/mode="canvas_items"
-window/main_scene="uid://bpiwf1d5l6v0x"
+window/size/viewport_width=1600
+window/size/viewport_height=880
+window/size/window_width_override=1600
+window/size/window_height_override=880
+window/stretch/mode="viewport"
+window/main_scene="uid://fcsrnx0w6buw"
 
 [dotnet]
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://k8xqmc066kjq"]
+
+[ext_resource type="Script" uid="uid://d1ar78fv2w4bk" path="res://Scripts/UI/TreeVisualizer.cs" id="1_c7eoj"]
+[ext_resource type="PackedScene" uid="uid://c4kv0dfbvd8n3" path="res://Scenes/UI/TreeNode2D.tscn" id="2_hyajm"]
+
+[node name="TreeVisualizer" type="Node2D"]
+script = ExtResource("1_c7eoj")
+NodeScene = ExtResource("2_hyajm")

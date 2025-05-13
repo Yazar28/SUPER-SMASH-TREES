@@ -1,17 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://duuh87cgyvayy"]
+[gd_scene load_steps=13 format=3 uid="uid://duuh87cgyvayy"]
 
 [ext_resource type="Script" uid="uid://ejwqwx1qbrpv" path="res://Scripts/Managers/GameManager.cs" id="1_57p6d"]
 [ext_resource type="PackedScene" uid="uid://oavxp1fmc2x4" path="res://Scenes/Backgrounds/GameScene.tscn" id="1_hoc1l"]
 [ext_resource type="PackedScene" uid="uid://bqqnenoytc3r1" path="res://Scenes/Tokens/Token.tscn" id="2_57p6d"]
 [ext_resource type="PackedScene" uid="uid://cl88nnx3qw8we" path="res://Scenes/Platform/Plataformas.tscn" id="2_o6ggv"]
+[ext_resource type="PackedScene" uid="uid://ns1qyl3sc7kk" path="res://Scenes/Players/Player1.tscn" id="2_ukvys"]
 [ext_resource type="PackedScene" uid="uid://b3t2jcc80pwma" path="res://Scenes/Players/Player2.tscn" id="3_u4oc6"]
+[ext_resource type="PackedScene" uid="uid://k8xqmc066kjq" path="res://Scenes/UI/TreeVisualizer.tscn" id="6_wayr1"]
+[ext_resource type="Texture2D" uid="uid://bfpo3xisphjax" path="res://Assets/HUB/HUBTree.png" id="7_30r0c"]
+[ext_resource type="Texture2D" uid="uid://btu1ydjvgrucf" path="res://Assets/HUB/Hub.png" id="8_d2qxo"]
+[ext_resource type="FontFile" uid="uid://bxmbva5xwh2sg" path="res://Assets/Fonts/Pixel Emulator.otf" id="9_0f60j"]
+[ext_resource type="Script" uid="uid://6jdtwn2xr0n4" path="res://Scripts/UI/HubUI.cs" id="9_oc18j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukvys"]
+size = Vector2(8, 800)
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("VisualJugador1", "VisualJugador2")]
 script = ExtResource("1_57p6d")
+PlayerScene1 = ExtResource("2_ukvys")
+PlayerScene2 = ExtResource("3_u4oc6")
 TokenScene = ExtResource("2_57p6d")
 TokenSpawnInterval = 3.0
+VisualJugador1 = NodePath("../TreeUILayer/TreeVisualizerJugador1")
+VisualJugador2 = NodePath("../TreeUILayer/TreeVisualizerJugador2")
 
 [node name="Backgrounds" parent="." instance=ExtResource("1_hoc1l")]
 
@@ -19,4 +32,151 @@ TokenSpawnInterval = 3.0
 
 [node name="Tokens" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("3_u4oc6")]
+[node name="Players" type="Node2D" parent="."]
+
+[node name="TreeUILayer" type="CanvasLayer" parent="."]
+
+[node name="TreeUI" type="ColorRect" parent="TreeUILayer"]
+custom_minimum_size = Vector2(320, 800)
+offset_left = 1274.0
+offset_right = 1600.0
+offset_bottom = 880.0
+color = Color(0.0784314, 0.0392157, 0.0666667, 1)
+
+[node name="TextureRect" type="TextureRect" parent="TreeUILayer"]
+offset_left = 1199.0
+offset_top = -55.0
+offset_right = 1655.0
+offset_bottom = 995.0
+texture = ExtResource("7_30r0c")
+expand_mode = 1
+
+[node name="TreeVisualizerJugador1" parent="TreeUILayer" instance=ExtResource("6_wayr1")]
+position = Vector2(1430, 130)
+
+[node name="TreeVisualizerJugador2" parent="TreeUILayer" instance=ExtResource("6_wayr1")]
+position = Vector2(1430, 330)
+
+[node name="TreeVisualizerJugador3" parent="TreeUILayer" instance=ExtResource("6_wayr1")]
+position = Vector2(1430, 530)
+rotation = 0.00211414
+
+[node name="HUB" type="CanvasLayer" parent="."]
+
+[node name="HubUI" type="CanvasLayer" parent="HUB"]
+script = ExtResource("9_oc18j")
+
+[node name="HubUI" type="TextureRect" parent="HUB/HubUI"]
+custom_minimum_size = Vector2(1274, 120)
+offset_left = -3.0
+offset_top = 655.0
+offset_right = 1277.0
+offset_bottom = 881.0
+texture = ExtResource("8_d2qxo")
+expand_mode = 1
+
+[node name="ScoreJugador1" type="Label" parent="HUB/HubUI"]
+offset_left = 199.0
+offset_top = 693.0
+offset_right = 397.0
+offset_bottom = 721.0
+theme_override_colors/font_color = Color(0.929412, 0.709804, 0.290196, 1)
+theme_override_fonts/font = ExtResource("9_0f60j")
+theme_override_font_sizes/font_size = 20
+text = "0 pts"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreJugador2" type="Label" parent="HUB/HubUI"]
+offset_left = 199.0
+offset_top = 754.0
+offset_right = 397.0
+offset_bottom = 782.0
+theme_override_colors/font_color = Color(0.929412, 0.698039, 0.294118, 1)
+theme_override_fonts/font = ExtResource("9_0f60j")
+theme_override_font_sizes/font_size = 20
+text = "0 pts"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreJugador3" type="Label" parent="HUB/HubUI"]
+offset_left = 199.0
+offset_top = 815.0
+offset_right = 397.0
+offset_bottom = 843.0
+theme_override_colors/font_color = Color(0.941176, 0.705882, 0.290196, 1)
+theme_override_fonts/font = ExtResource("9_0f60j")
+theme_override_font_sizes/font_size = 20
+text = "0 pts"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="HUB/HubUI"]
+offset_left = 459.0
+offset_top = 675.0
+offset_right = 694.0
+offset_bottom = 758.0
+theme_override_colors/font_color = Color(0.12549, 0.521569, 0.156863, 1)
+theme_override_fonts/font = ExtResource("9_0f60j")
+theme_override_font_sizes/font_size = 60
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeTree" type="Label" parent="HUB/HubUI"]
+offset_left = 911.0
+offset_top = 697.0
+offset_right = 1211.0
+offset_bottom = 762.0
+theme_override_colors/font_color = Color(0.188639, 0.0735147, 0.0305075, 1)
+theme_override_fonts/font = ExtResource("9_0f60j")
+theme_override_font_sizes/font_size = 55
+text = "Type"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionTree" type="Label" parent="HUB/HubUI"]
+custom_minimum_size = Vector2(400, 55)
+offset_left = 790.0
+offset_top = 807.0
+offset_right = 1190.0
+offset_bottom = 862.0
+theme_override_colors/font_color = Color(0.188235, 0.0745098, 0.0313726, 1)
+theme_override_fonts/font = ExtResource("9_0f60j")
+text = "Challenge
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RoundsTree" type="Label" parent="HUB/HubUI"]
+offset_left = 489.0
+offset_top = 801.0
+offset_right = 693.0
+offset_bottom = 857.0
+theme_override_colors/font_color = Color(0.852165, 0.390739, 0.100505, 1)
+theme_override_fonts/font = ExtResource("9_0f60j")
+theme_override_font_sizes/font_size = 45
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1274, 0)
+offset_top = 840.0
+offset_right = 1274.0
+offset_bottom = 880.0
+color = Color(0.16687, 0.0614552, 0.0268848, 1)
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-4, 400)
+shape = SubResource("RectangleShape2D_ukvys")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(1278, 400)
+scale = Vector2(1, 0.972129)
+shape = SubResource("RectangleShape2D_ukvys")

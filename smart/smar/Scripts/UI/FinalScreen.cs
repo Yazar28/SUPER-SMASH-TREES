@@ -20,23 +20,20 @@ public partial class FinalScreen : Control
 
     public override void _Ready()
     {
-        Puntajes.Add(new JugadorInfo("Jugador A", 250));
-        Puntajes.Add(new JugadorInfo("Jugador B", 120));
-        Puntajes.Add(new JugadorInfo("Jugador C", 180));
-        Puntajes.Add(new JugadorInfo("Jugador D", 90));
+        var resultados = GetNode<GlobalData>("/root/GlobalData").ResultadosFinales;
 
-        Puntajes.Sort((a, b) => b.Puntaje.CompareTo(a.Puntaje));
+        resultados.Sort((a, b) => b.puntaje.CompareTo(a.puntaje)); // Ordenar de mayor a menor
 
-        for (int i = 0; i < Puntajes.Count && i < 4; i++)
+        for (int i = 0; i < resultados.Count && i < 3; i++)
         {
             var nombreLabel = GetNode<Label>($"Contenido/Estadísticas/Fila{i + 1}/Nombre{i + 1}");
             var puntosLabel = GetNode<Label>($"Contenido/Estadísticas/Fila{i + 1}/Puntos{i + 1}");
 
-            nombreLabel.Text = Puntajes[i].Nombre;
-            puntosLabel.Text = Puntajes[i].Puntaje.ToString();
+            nombreLabel.Text = resultados[i].nombre;
+            puntosLabel.Text = $"{resultados[i].puntaje} pts";
         }
 
-        var botonSalir = GetNode<TextureButton>("Boton");
-        botonSalir.Pressed += () => GetTree().Quit();
+        GetNode<TextureButton>("Boton").Pressed += () => GetTree().Quit();
     }
+
 }

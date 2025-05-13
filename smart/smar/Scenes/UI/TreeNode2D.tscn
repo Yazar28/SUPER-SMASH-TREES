@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4kv0dfbvd8n3"]
+
+[ext_resource type="Script" uid="uid://b14fcqebt0c1m" path="res://Scripts/UI/TreeNode2D.cs" id="1_8j1at"]
+[ext_resource type="Texture2D" uid="uid://b7w3dr2jxx1w" path="res://Assets/HUB/Sellos.png" id="2_flkdg"]
+
+[node name="TreeNode2D" type="Node2D"]
+z_index = 1
+position = Vector2(-2, 0)
+script = ExtResource("1_8j1at")
+
+[node name="CircleBackground" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_flkdg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ValueLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -11.5
+offset_right = 9.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.676827, 0.541798, 0.313375, 1)
+horizontal_alignment = 1
+vertical_alignment = 1

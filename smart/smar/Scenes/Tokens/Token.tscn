@@ -8,6 +8,7 @@
 radius = 26.0
 
 [node name="Token" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_3w2o5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -30,8 +31,9 @@ offset_right = 13.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.0177229
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.588136, 0.302819, 0.0138369, 1)
+theme_override_colors/font_color = Color(0.481641, 0.610758, 0.75271, 1)
 theme_override_fonts/font = ExtResource("3_53clb")
 horizontal_alignment = 1
 vertical_alignment = 1

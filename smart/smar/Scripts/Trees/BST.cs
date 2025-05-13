@@ -1,13 +1,10 @@
-// BST.cs
 using System;
+
 namespace BinaryTree
 {
-    // Binary Search Tree (BST) implementation
-    // This class is used to manage the player's score tree
-    // and calculate the depth of the tree.
     public class BST
     {
-        private class Node
+        public class Node
         {
             public int Value;
             public Node Left;
@@ -17,17 +14,27 @@ namespace BinaryTree
         }
 
         private Node _root;
-        public int NodeCount { get; private set; }
+        private int _nodeCount = 0;
+
+        public int Count => _nodeCount;
+
+        public Node GetRoot()
+        {
+            return _root;
+        }
 
         public void Insert(int value)
         {
             _root = InsertRec(_root, value);
-            NodeCount++;
         }
 
         private Node InsertRec(Node node, int value)
         {
-            if (node == null) return new Node(value);
+            if (node == null)
+            {
+                _nodeCount++;
+                return new Node(value);
+            }
 
             if (value < node.Value)
                 node.Left = InsertRec(node.Left, value);
@@ -37,7 +44,10 @@ namespace BinaryTree
             return node;
         }
 
-        public int GetDepth() => CalculateDepth(_root);
+        public int GetDepth()
+        {
+            return CalculateDepth(_root);
+        }
 
         private int CalculateDepth(Node node)
         {
@@ -46,6 +56,19 @@ namespace BinaryTree
                 CalculateDepth(node.Left),
                 CalculateDepth(node.Right)
             );
+        }
+
+        public bool Contains(int value)
+        {
+            return ContainsRec(_root, value);
+        }
+
+        private bool ContainsRec(Node node, int value)
+        {
+            if (node == null) return false;
+            if (value == node.Value) return true;
+            if (value < node.Value) return ContainsRec(node.Left, value);
+            return ContainsRec(node.Right, value);
         }
     }
 }

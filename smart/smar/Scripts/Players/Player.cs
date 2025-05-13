@@ -14,6 +14,7 @@ public partial class Player : CharacterBody2D
 
     // Puntos y poderes
     private int _score = 0;
+    public int Score => _score;
     [Export] public int ForcePushCost = 5;
     [Export] public int ShieldCost = 3;
     [Export] public int AirJumpCost = 4;

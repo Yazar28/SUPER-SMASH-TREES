@@ -36,8 +36,6 @@ public partial class PlatformGenerator : Node2D
             platform.Position = new Vector2(x, y);
             AddChild(platform);
 
-            GD.Print($"Plataforma {i + 1} desde X={startX}: X={x}, Y={y}");
-
             float direction = goRight ? 1f : -1f;
             goRight = !goRight;
 

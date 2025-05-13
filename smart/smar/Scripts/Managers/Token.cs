@@ -17,7 +17,7 @@ public partial class Token : Area2D
 
         var label = GetNode<Label>("ValueLabel");
         label.Text = Value.ToString();
-        label.AddThemeColorOverride("font_color", new Color(0.75f, 0.6f, 0.1f));
+        label.AddThemeColorOverride("font_color", new Color(0.8f, 0.4f, 0.05f));
 
         BodyEntered += OnBodyEntered;
     }
@@ -40,4 +40,5 @@ public partial class Token : Area2D
             QueueFree();
         }
     }
+
 }

@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkq4q0q1w7swi"]
 
-[ext_resource type="Texture2D" uid="uid://bxgtq1hsgdrj" path="res://Assets/Backgrounds/Fondo_Final.png" id="1_h36gm"]
+[ext_resource type="Texture2D" uid="uid://dii3m8ohn8v1v" path="res://Assets/Backgrounds/Fondo_Final.png" id="1_h36gm"]
 [ext_resource type="Script" uid="uid://ch3fx5l05jhrw" path="res://Scripts/UI/FinalScreen.cs" id="1_oqgvi"]
-[ext_resource type="Texture2D" uid="uid://dtqo2rk1voqon" path="res://Assets/Tittles/Fin del juego.png" id="2_d1wfi"]
-[ext_resource type="Texture2D" uid="uid://cc0w7ym2scdfb" path="res://Assets/Backgrounds/Marco.png" id="2_jc7hd"]
+[ext_resource type="Texture2D" uid="uid://c07620noklfw3" path="res://Assets/Tittles/Fin del juego.png" id="2_d1wfi"]
+[ext_resource type="Texture2D" uid="uid://djc37xp55jtug" path="res://Assets/Backgrounds/Marco.png" id="2_jc7hd"]
 [ext_resource type="Texture2D" uid="uid://lohb4cjyl6pv" path="res://Assets/Buttons/Normal_Salir.tres" id="3_isq7k"]
-[ext_resource type="FontFile" uid="uid://bddxlju3fnay3" path="res://Assets/Fonts/Pixel Emulator.otf" id="3_rbmt6"]
+[ext_resource type="FontFile" uid="uid://bxmbva5xwh2sg" path="res://Assets/Fonts/Pixel Emulator.otf" id="3_rbmt6"]
 [ext_resource type="Texture2D" uid="uid://bf7yg4v4hxr2l" path="res://Assets/Buttons/Pressed_Salir.tres" id="4_rbmt6"]
 [ext_resource type="Texture2D" uid="uid://bun5kmahl6c58" path="res://Assets/Buttons/Hover_Salir.tres" id="5_jc7hd"]
 
@@ -29,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -641.0
-offset_top = -360.0
-offset_right = 641.0
-offset_bottom = 360.0
+offset_left = -800.0
+offset_top = -440.0
+offset_right = 800.0
+offset_bottom = 440.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_h36gm")
@@ -45,10 +45,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -285.5
-offset_top = -136.0
-offset_right = 287.5
-offset_bottom = 238.0
+offset_left = -327.0
+offset_top = -93.0
+offset_right = 334.0
+offset_bottom = 327.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jc7hd")
@@ -56,21 +56,18 @@ expand_mode = 2
 
 [node name="Contenido" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -138.5
-offset_top = -285.0
-offset_right = 138.5
-offset_bottom = 119.0
+offset_left = -247.5
+offset_top = -263.0
+offset_right = 247.5
+offset_bottom = 277.0
 grow_horizontal = 2
-grow_vertical = 0
 theme_override_constants/separation = 20
 
 [node name="Titulo" type="TextureRect" parent="Contenido"]
-custom_minimum_size = Vector2(0, 270)
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 texture = ExtResource("2_d1wfi")
 expand_mode = 1
@@ -88,12 +85,18 @@ theme_override_constants/separation = 100
 [node name="Nombre1" type="Label" parent="Contenido/Estadísticas/Fila1"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_rbmt6")
+theme_override_font_sizes/font_size = 25
 text = "Jugador 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Puntos1" type="Label" parent="Contenido/Estadísticas/Fila1"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_rbmt6")
-text = "Puntaje 1"
+theme_override_font_sizes/font_size = 25
+text = "0 pts"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Fila2" type="HBoxContainer" parent="Contenido/Estadísticas"]
 layout_mode = 2
@@ -102,12 +105,18 @@ theme_override_constants/separation = 100
 [node name="Nombre2" type="Label" parent="Contenido/Estadísticas/Fila2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_rbmt6")
+theme_override_font_sizes/font_size = 25
 text = "Jugador 2"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Puntos2" type="Label" parent="Contenido/Estadísticas/Fila2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_rbmt6")
-text = "Puntaje 2"
+theme_override_font_sizes/font_size = 25
+text = "o pts"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Fila3" type="HBoxContainer" parent="Contenido/Estadísticas"]
 layout_mode = 2
@@ -116,26 +125,18 @@ theme_override_constants/separation = 100
 [node name="Nombre3" type="Label" parent="Contenido/Estadísticas/Fila3"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_rbmt6")
+theme_override_font_sizes/font_size = 25
 text = "Jugador 3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Puntos3" type="Label" parent="Contenido/Estadísticas/Fila3"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_rbmt6")
-text = "Puntaje 3"
-
-[node name="Fila4" type="HBoxContainer" parent="Contenido/Estadísticas"]
-layout_mode = 2
-theme_override_constants/separation = 100
-
-[node name="Nombre4" type="Label" parent="Contenido/Estadísticas/Fila4"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_rbmt6")
-text = "Jugador 4"
-
-[node name="Puntos4" type="Label" parent="Contenido/Estadísticas/Fila4"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_rbmt6")
-text = "Puntaje 4"
+theme_override_font_sizes/font_size = 25
+text = "0 pts"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Boton" type="TextureButton" parent="."]
 layout_mode = 1
