@@ -9,10 +9,12 @@ public partial class GameManager : Node
 
     [Export] public PackedScene PlayerScene1;
     [Export] public PackedScene PlayerScene2;
+    [Export] public PackedScene PlayerScene3;
     [Export] public PackedScene TokenScene;
     [Export] public float TokenSpawnInterval = 2.0f;
     [Export] public TreeVisualizer VisualJugador1;
     [Export] public TreeVisualizer VisualJugador2;
+    [Export] public TreeVisualizer VisualJugador3; 
 
     private Timer _tokenTimer;
 
@@ -21,6 +23,7 @@ public partial class GameManager : Node
 
     private bool _jugador1Activo = false;
     private bool _jugador2Activo = false;
+    private bool _jugador3Activo = false;
 
     private Reto _retoGlobal;
     private int _rondaActual = 1;
@@ -66,6 +69,15 @@ public partial class GameManager : Node
             InstanciarJugador(2, new Vector2(900, -200));
             _jugador2Activo = true;
         }
+
+        if (!_jugador3Activo && (
+            Input.IsActionJustPressed("p3_move_left") ||
+            Input.IsActionJustPressed("p3_move_right") ||
+            Input.IsActionJustPressed("p3_jump")))
+        {
+            InstanciarJugador(3, new Vector2(600, -200)); 
+            _jugador3Activo = true;
+        }
     }
 
     private void InstanciarJugador(int numero, Vector2 posicion)
@@ -79,6 +91,9 @@ public partial class GameManager : Node
                 break;
             case 2:
                 jugador = PlayerScene2.Instantiate<Player>();
+                break;
+            case 3:
+                jugador = PlayerScene3.Instantiate<Player>(); 
                 break;
         }
 
@@ -99,6 +114,7 @@ public partial class GameManager : Node
         {
             case 1: _visualPorJugador[jugador] = VisualJugador1; break;
             case 2: _visualPorJugador[jugador] = VisualJugador2; break;
+            case 3: _visualPorJugador[jugador] = VisualJugador3; break;
         }
     }
 

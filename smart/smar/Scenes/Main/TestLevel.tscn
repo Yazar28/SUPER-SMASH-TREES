@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://duuh87cgyvayy"]
+[gd_scene load_steps=14 format=3 uid="uid://duuh87cgyvayy"]
 
 [ext_resource type="Script" uid="uid://ejwqwx1qbrpv" path="res://Scripts/Managers/GameManager.cs" id="1_57p6d"]
 [ext_resource type="PackedScene" uid="uid://oavxp1fmc2x4" path="res://Scenes/Backgrounds/GameScene.tscn" id="1_hoc1l"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cl88nnx3qw8we" path="res://Scenes/Platform/Plataformas.tscn" id="2_o6ggv"]
 [ext_resource type="PackedScene" uid="uid://ns1qyl3sc7kk" path="res://Scenes/Players/Player1.tscn" id="2_ukvys"]
 [ext_resource type="PackedScene" uid="uid://b3t2jcc80pwma" path="res://Scenes/Players/Player2.tscn" id="3_u4oc6"]
+[ext_resource type="PackedScene" uid="uid://dclcjhn7wh800" path="res://Scenes/Players/Player3.tscn" id="4_qyvwn"]
 [ext_resource type="PackedScene" uid="uid://k8xqmc066kjq" path="res://Scenes/UI/TreeVisualizer.tscn" id="6_wayr1"]
 [ext_resource type="Texture2D" uid="uid://bfpo3xisphjax" path="res://Assets/HUB/HUBTree.png" id="7_30r0c"]
 [ext_resource type="Texture2D" uid="uid://btu1ydjvgrucf" path="res://Assets/HUB/Hub.png" id="8_d2qxo"]
@@ -17,14 +18,16 @@ size = Vector2(8, 800)
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("VisualJugador1", "VisualJugador2")]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("VisualJugador1", "VisualJugador2", "VisualJugador3")]
 script = ExtResource("1_57p6d")
 PlayerScene1 = ExtResource("2_ukvys")
 PlayerScene2 = ExtResource("3_u4oc6")
+PlayerScene3 = ExtResource("4_qyvwn")
 TokenScene = ExtResource("2_57p6d")
 TokenSpawnInterval = 3.0
 VisualJugador1 = NodePath("../TreeUILayer/TreeVisualizerJugador1")
 VisualJugador2 = NodePath("../TreeUILayer/TreeVisualizerJugador2")
+VisualJugador3 = NodePath("../TreeUILayer/TreeVisualizerJugador3")
 
 [node name="Backgrounds" parent="." instance=ExtResource("1_hoc1l")]
 

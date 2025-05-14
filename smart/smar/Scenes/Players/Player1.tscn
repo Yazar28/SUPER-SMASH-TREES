@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://ns1qyl3sc7kk"]
 
 [ext_resource type="Script" uid="uid://c0dy8rik2l3vi" path="res://Scripts/Players/Player.cs" id="1_dli2r"]
-[ext_resource type="Texture2D" uid="uid://bjpy3u3oe1aka" path="res://Assets/Sprites/Personaje1/character_maleAdventurer_sheetHD.png" id="2_uojif"]
+[ext_resource type="Texture2D" uid="uid://dmq2x26ecidyd" path="res://Assets/Sprites/Personaje1/character_maleAdventurer_sheetHD.png" id="2_uojif"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uojif"]
 atlas = ExtResource("2_uojif")
@@ -148,7 +148,7 @@ shape = SubResource("CircleShape2D_uojif")
 wait_time = 0.05
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="OnAttackHit"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="CooldownTimer" to="." method="OnCooldownTimerTimeout"]
