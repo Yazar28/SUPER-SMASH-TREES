@@ -126,6 +126,15 @@ radius = 18.0278
 position = Vector2(217, 168)
 script = ExtResource("1_lbwrh")
 PlayerNumber = 2
+Speed = 320.0
+JumpVelocity = -600.0
+KnockbackForce = 1000.0
+ForcePushCost = 100
+ShieldCost = 50
+AirJumpCost = 60
+ForcePushStrength = 6000.0
+ShieldDuration = 3.0
+AirJumpVelocity = -800.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.421875, 0.386719)
@@ -145,12 +154,20 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource("CircleShape2D_uojif")
 
+[node name="ForcePushArea" type="Area2D" parent="."]
+position = Vector2(23, 17)
+collision_layer = 2
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForcePushArea"]
+shape = SubResource("CircleShape2D_uojif")
+
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.05
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="OnAttackHit"]
-[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="CooldownTimer" to="." method="OnCooldownTimerTimeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
