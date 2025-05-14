@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dcrvmsp2t63dy"]
 
 [ext_resource type="Script" uid="uid://c0dy8rik2l3vi" path="res://Scripts/Players/Player.cs" id="1_tss2m"]
-[ext_resource type="Texture2D" uid="uid://cgkx6sh3s03hg" path="res://Assets/Sprites/Personaje4/character_femaleAdventurer_sheetHD.png" id="2_tss2m"]
+[ext_resource type="Texture2D" uid="uid://dv0t58ufbewhg" path="res://Assets/Sprites/Personaje4/character_femaleAdventurer_sheetHD.png" id="2_tss2m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v1awp"]
 atlas = ExtResource("2_tss2m")
@@ -155,9 +155,9 @@ shape = SubResource("CircleShape2D_uojif")
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 0.05
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="AttackArea" to="." method="OnAttackHit"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="OnAttackHit"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="CooldownTimer" to="." method="OnCooldownTimerTimeout"]
