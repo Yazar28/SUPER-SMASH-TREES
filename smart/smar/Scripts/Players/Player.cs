@@ -36,7 +36,9 @@ public partial class Player : CharacterBody2D
     private Player _lastAttacker;
     private bool _isAttacking = false;
     private bool _canAttack = true;
-
+    private Area2D _forcePushArea;
+    private Vector2 _forcePushAreaBasePos;
+    private bool _isUsingForcePush = false;
     public override void _Ready()
     {
         // Init
@@ -44,6 +46,9 @@ public partial class Player : CharacterBody2D
         _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         _attackArea = GetNode<Area2D>("AttackArea");
         _cooldownTimer = GetNode<Timer>("CooldownTimer");
+        _forcePushArea = GetNode<Area2D>("ForcePushArea");
+        _forcePushAreaBasePos = _forcePushArea.Position;
+        _forcePushArea.Monitoring = true; // Asegurar que siempre monitoree
 
         // Connect cooldown timer to reset attack
         _cooldownTimer.Timeout += () =>
@@ -156,6 +161,13 @@ public partial class Player : CharacterBody2D
     private void OnAnimationFinished()
     {
         StringName anim = _sprite.Animation;
+
+        if (anim == "Attack2" && _isUsingForcePush)
+        {
+            _isUsingForcePush = false; // Reiniciar el estado del ForcePush
+            _sprite.Play("Reposo");   // Volver a animación de reposo
+        }
+
         if (anim == "Attack" || anim == "Attack2")
         {
             _isAttacking = false;
@@ -207,6 +219,8 @@ public partial class Player : CharacterBody2D
     private void DieAndRespawn()
     {
         if (_lastAttacker != null) _lastAttacker.AddScore(1);
+        int pts =_score/2;
+        _score = pts;
         Velocity = Vector2.Zero;
         GlobalPosition = new Vector2(650, -300);
     }
@@ -221,10 +235,20 @@ public partial class Player : CharacterBody2D
     private void TryForcePush()
     {
         if (_score < ForcePushCost) return;
+
         _score -= ForcePushCost;
-        foreach (var b in _attackArea.GetOverlappingBodies())
-            if (b is Player t && t != this)
-                t.ReceiveKnockback((t.GlobalPosition - GlobalPosition).Normalized() * ForcePushStrength);
+        _isUsingForcePush = true; // Activar el estado de ForcePush
+        _sprite.Play("Attack2");  // Reproducir animación "Attack2"
+
+        // Aplicar el empuje a los jugadores en el área
+        foreach (var body in _forcePushArea.GetOverlappingBodies())
+        {
+            if (body is Player target && target != this)
+            {
+                Vector2 direction = (target.GlobalPosition - GlobalPosition).Normalized();
+                target.ReceiveKnockback(direction * ForcePushStrength);
+            }
+        }
     }
 
     private void TryShield()
@@ -250,6 +274,12 @@ public partial class Player : CharacterBody2D
     // --- Animations ---
     private void UpdateAnimation(Vector2 inputDir)
     {
+        if (_isUsingForcePush)
+        {
+            // No hacer nada si está en medio del ForcePush
+            return;
+        }
+
         if (!IsOnFloor())
             _sprite.Play("Salto");
         else if (_isAttacking)
@@ -270,5 +300,9 @@ public partial class Player : CharacterBody2D
             _attackArea.Position = new Vector2(
                 _attackAreaBasePos.X * (_sprite.FlipH ? -1 : 1),
                 _attackAreaBasePos.Y);
+        _forcePushArea.Position = new Vector2(
+        _forcePushAreaBasePos.X * (_sprite.FlipH ? -1 : 1),
+        _forcePushAreaBasePos.Y);
+
     }
 }
