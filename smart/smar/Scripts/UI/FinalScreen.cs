@@ -22,18 +22,20 @@ public partial class FinalScreen : Control
     {
         var resultados = GetNode<GlobalData>("/root/GlobalData").ResultadosFinales;
 
-        resultados.Sort((a, b) => b.puntaje.CompareTo(a.puntaje)); // Ordenar de mayor a menor
+        var listaOrdenada = new List<(string nombre, int puntaje)>();
+        for (int i = 0; i < resultados.Contar(); i++)
+            listaOrdenada.Add(resultados.Obtener(i));
 
-        for (int i = 0; i < resultados.Count && i < 3; i++)
+        listaOrdenada.Sort((a, b) => b.puntaje.CompareTo(a.puntaje));
+
+        for (int i = 0; i < listaOrdenada.Count && i < 3; i++)
         {
             var nombreLabel = GetNode<Label>($"Contenido/Estadísticas/Fila{i + 1}/Nombre{i + 1}");
             var puntosLabel = GetNode<Label>($"Contenido/Estadísticas/Fila{i + 1}/Puntos{i + 1}");
 
-            nombreLabel.Text = resultados[i].nombre;
-            puntosLabel.Text = $"{resultados[i].puntaje} pts";
+            nombreLabel.Text = listaOrdenada[i].nombre;
+            puntosLabel.Text = $"{listaOrdenada[i].puntaje} pts";
         }
-
-        GetNode<TextureButton>("Boton").Pressed += () => GetTree().Quit();
     }
 
 }

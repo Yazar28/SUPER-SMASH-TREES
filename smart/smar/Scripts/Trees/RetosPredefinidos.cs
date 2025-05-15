@@ -1,23 +1,23 @@
-using System.Collections.Generic;
-
 public static class RetosPredefinidos
 {
-    public static List<Reto> Todos = new List<Reto>
+    public static ListaSimple<Reto> Todos = CrearLista();
+
+    private static ListaSimple<Reto> CrearLista()
     {
-        // --- SOLO BST ---
-        new Reto(TipoArbol.BST, "Construye un BST con 6 nodos",
-            arbol => (arbol as BinaryTree.BST)?.Count == 6),
+        var lista = new ListaSimple<Reto>();
 
-        new Reto(TipoArbol.BST, "Construye un BST con profundidad 4",
-            arbol => (arbol as BinaryTree.BST)?.GetDepth() == 4),
+        lista.Agregar(new Reto(TipoArbol.BST, "Construye un BST con 6 nodos",
+            arbol => (arbol as BinaryTree.BST)?.Count == 6));
 
-        // --- AVL ---
-        new Reto(TipoArbol.AVL, "Construye un AVL con al menos 5 nodos",
-            arbol => (arbol as BinaryTree.AVLTree)?.Count >= 5),
+        lista.Agregar(new Reto(TipoArbol.BST, "Construye un BST con profundidad 4",
+            arbol => (arbol as BinaryTree.BST)?.GetDepth() == 4));
 
-        new Reto(TipoArbol.AVL, "Construye un AVL con exactamente 7 nodos",
-            arbol => (arbol as BinaryTree.AVLTree)?.Count == 7),
-    };
+        lista.Agregar(new Reto(TipoArbol.AVL, "Construye un AVL con al menos 5 nodos",
+            arbol => (arbol as BinaryTree.AVLTree)?.Count >= 5));
 
+        lista.Agregar(new Reto(TipoArbol.AVL, "Construye un AVL con exactamente 7 nodos",
+            arbol => (arbol as BinaryTree.AVLTree)?.Count == 7));
 
+        return lista;
+    }
 }

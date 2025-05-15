@@ -4,18 +4,19 @@ using System.Collections.Generic;
 
 public partial class PlatformGenerator : Node2D
 {
-    private List<PackedScene> platformTypes = new List<PackedScene>();
+    private ListaSimple<PackedScene> platformTypes = new ListaSimple<PackedScene>();
 
     public override void _Ready()
     {
-        platformTypes.Add(GD.Load<PackedScene>("res://Scenes/Platform/plataformaPeque.tscn"));
-        platformTypes.Add(GD.Load<PackedScene>("res://Scenes/Platform/plataformaMediana.tscn"));
-        platformTypes.Add(GD.Load<PackedScene>("res://Scenes/Platform/plataformaGrande.tscn"));
-        platformTypes.Add(GD.Load<PackedScene>("res://Scenes/Platform/plataformaEnorme.tscn"));
+        platformTypes.Agregar(GD.Load<PackedScene>("res://Scenes/Platform/plataformaPeque.tscn"));
+        platformTypes.Agregar(GD.Load<PackedScene>("res://Scenes/Platform/plataformaMediana.tscn"));
+        platformTypes.Agregar(GD.Load<PackedScene>("res://Scenes/Platform/plataformaGrande.tscn"));
+        platformTypes.Agregar(GD.Load<PackedScene>("res://Scenes/Platform/plataformaEnorme.tscn"));
 
-        GeneratePlatforms(5, 150f);   
-        GeneratePlatforms(5, 600f);   
-        GeneratePlatforms(5, 1000f); 
+        // ✅ Esto es lo que faltaba
+        GeneratePlatforms(5, 150f);   // Columna izquierda
+        GeneratePlatforms(5, 600f);   // Columna central
+        GeneratePlatforms(5, 1000f);  // Columna derecha
     }
 
     private void GeneratePlatforms(int amount, float startX)
@@ -25,12 +26,11 @@ public partial class PlatformGenerator : Node2D
 
         float x = startX;
         float y = 600f;
-
         bool goRight = true;
 
         for (int i = 0; i < amount; i++)
         {
-            var scene = platformTypes[rng.RandiRange(0, platformTypes.Count - 1)];
+            var scene = platformTypes.Obtener(rng.RandiRange(0, platformTypes.Contar() - 1));
             var platform = scene.Instantiate<Node2D>();
             platform.Scale = new Vector2(0.5f, 0.5f);
             platform.Position = new Vector2(x, y);

@@ -80,11 +80,11 @@ public partial class HubUI : CanvasLayer
     {
 
         var gd = GetNode<GlobalData>("/root/GlobalData");
-        gd.ResultadosFinales.Clear();
+        gd.ResultadosFinales.Limpiar();
 
         foreach (Player jugador in GetTree().GetNodesInGroup("Players"))
         {
-            gd.ResultadosFinales.Add(($"Jugador {jugador.PlayerNumber}", jugador.Score));
+            gd.ResultadosFinales.Agregar(($"Jugador {jugador.PlayerNumber}", jugador.Score));
         }
 
         GetTree().ChangeSceneToFile("res://Scenes/UI/FinalScreen/FinalScreen.tscn");

@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Collections.Generic;
 using BinaryTree;
 
 public partial class GameManager : Node
@@ -14,12 +13,12 @@ public partial class GameManager : Node
     [Export] public float TokenSpawnInterval = 2.0f;
     [Export] public TreeVisualizer VisualJugador1;
     [Export] public TreeVisualizer VisualJugador2;
-    [Export] public TreeVisualizer VisualJugador3; 
+    [Export] public TreeVisualizer VisualJugador3;
 
     private Timer _tokenTimer;
 
-    private Dictionary<Player, JugadorProgreso> _jugadores = new();
-    private Dictionary<Player, TreeVisualizer> _visualPorJugador = new();
+    private MapaSimple<Player, JugadorProgreso> _jugadores = new();
+    private MapaSimple<Player, TreeVisualizer> _visualPorJugador = new();
 
     private bool _jugador1Activo = false;
     private bool _jugador2Activo = false;
@@ -75,7 +74,7 @@ public partial class GameManager : Node
             Input.IsActionJustPressed("p3_move_right") ||
             Input.IsActionJustPressed("p3_jump")))
         {
-            InstanciarJugador(3, new Vector2(600, -200)); 
+            InstanciarJugador(3, new Vector2(600, -200));
             _jugador3Activo = true;
         }
     }
@@ -93,7 +92,7 @@ public partial class GameManager : Node
                 jugador = PlayerScene2.Instantiate<Player>();
                 break;
             case 3:
-                jugador = PlayerScene3.Instantiate<Player>(); 
+                jugador = PlayerScene3.Instantiate<Player>();
                 break;
         }
 
@@ -107,14 +106,14 @@ public partial class GameManager : Node
         var contenedorJugadores = GetParent().GetNode<Node2D>("Players");
         contenedorJugadores.AddChild(jugador);
 
-        _jugadores[jugador] = new JugadorProgreso(_retoGlobal);
+        _jugadores.Agregar(jugador, new JugadorProgreso(_retoGlobal));
         GD.Print($"👤 Jugador {numero} instanciado con reto: {_retoGlobal.Descripcion}");
 
         switch (numero)
         {
-            case 1: _visualPorJugador[jugador] = VisualJugador1; break;
-            case 2: _visualPorJugador[jugador] = VisualJugador2; break;
-            case 3: _visualPorJugador[jugador] = VisualJugador3; break;
+            case 1: _visualPorJugador.Agregar(jugador, VisualJugador1); break;
+            case 2: _visualPorJugador.Agregar(jugador, VisualJugador2); break;
+            case 3: _visualPorJugador.Agregar(jugador, VisualJugador3); break;
         }
     }
 
@@ -140,12 +139,12 @@ public partial class GameManager : Node
 
     public void PlayerCollectToken(Player player, int value)
     {
-        GD.Print($"📌 Jugador registrado en diccionario: {_jugadores.ContainsKey(player)}");
+        GD.Print($"📌 Jugador registrado en diccionario: {_jugadores.Contiene(player)}");
         GD.Print($"🎮 Número del jugador recibido: {player.PlayerNumber}");
 
-        if (!_jugadores.ContainsKey(player)) return;
+        if (!_jugadores.Contiene(player)) return;
 
-        var progreso = _jugadores[player];
+        var progreso = _jugadores.Obtener(player);
 
         progreso.InsertarValor(value);
         player.AddScore(value);
@@ -158,19 +157,19 @@ public partial class GameManager : Node
         if (_retoGlobal.Tipo == TipoArbol.BST)
         {
             var bst = progreso.Arbol as BST;
-            if (_visualPorJugador.ContainsKey(player))
+            if (_visualPorJugador.Contiene(player))
             {
                 GD.Print("🌿 Llamando CreateVisualTree para BST");
-                _visualPorJugador[player].CreateVisualTree(bst);
+                _visualPorJugador.Obtener(player).CreateVisualTree(bst);
             }
         }
         else if (_retoGlobal.Tipo == TipoArbol.AVL)
         {
             var avl = progreso.Arbol as AVLTree;
-            if (_visualPorJugador.ContainsKey(player))
+            if (_visualPorJugador.Contiene(player))
             {
                 GD.Print("🌳 Llamando CreateVisualTree para AVL");
-                _visualPorJugador[player].CreateVisualTree(avl);
+                _visualPorJugador.Obtener(player).CreateVisualTree(avl);
             }
         }
 
@@ -183,15 +182,15 @@ public partial class GameManager : Node
 
             _retoGlobal = ObtenerRetoAleatorio();
 
-            foreach (var kv in _jugadores)
+            foreach (var kv in _jugadores.ObtenerTodo())
             {
-                kv.Value.CambiarReto(_retoGlobal);
-                GD.Print($"🔁 Reiniciando árbol del jugador {kv.Key.PlayerNumber}");
+                kv.Valor.CambiarReto(_retoGlobal);
+                GD.Print($"🔁 Reiniciando árbol del jugador {kv.Clave.PlayerNumber}");
 
                 if (_retoGlobal.Tipo == TipoArbol.BST)
-                    _visualPorJugador[kv.Key].CreateVisualTree(new BST());
+                    _visualPorJugador.Obtener(kv.Clave).CreateVisualTree(new BST());
                 else
-                    _visualPorJugador[kv.Key].CreateVisualTree(new AVLTree());
+                    _visualPorJugador.Obtener(kv.Clave).CreateVisualTree(new AVLTree());
             }
 
             GD.Print($"🎯 Nuevo reto global: {_retoGlobal.Descripcion}");
@@ -203,6 +202,6 @@ public partial class GameManager : Node
     {
         var rng = new RandomNumberGenerator();
         rng.Randomize();
-        return RetosPredefinidos.Todos[rng.RandiRange(0, RetosPredefinidos.Todos.Count - 1)];
+        return RetosPredefinidos.Todos.Obtener(rng.RandiRange(0, RetosPredefinidos.Todos.Contar() - 1));
     }
 }
